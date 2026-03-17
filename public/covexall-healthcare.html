@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covexall — Clinical-Grade Hand Sanitizer for Healthcare Facilities</title>
+    <meta name="description" content="4-hour pathogen protection. FDA cleared, BSL-3 validated. The first water-based hand sanitizer clinically proven to kill SARS-CoV-2, C. diff spores, MRSA, and 11 bacterial species.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A7B6E;
+            --primary-dark: #065F55;
+            --primary-light: #E6F5F2;
+            --accent: #00D4AA;
+            --accent-bright: #00FFD0;
+            --accent-glow: rgba(0, 212, 170, 0.10);
+            --bg: #FFFFFF;
+            --bg-soft: #F7FAFA;
+            --bg-card: #FFFFFF;
+            --surface-muted: #F0F5F4;
+            --text-primary: #1A2B3C;
+            --text-secondary: #5A6E7F;
+            --text-muted: #8A9BAC;
+            --border: #E2E8F0;
+            --border-light: #EDF2F7;
+            --data-green: #22C55E;
+            --data-green-bg: #F0FDF4;
+            --data-red: #EF4444;
+            --data-red-bg: #FEF2F2;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.07);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.08);
+            --radius: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text-primary);
+            background: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Lora', serif;
+            line-height: 1.25;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ============================================
+           SECTION 1: ANNOUNCEMENT BANNER
+           ============================================ */
+        .announcement-banner {
+            background: linear-gradient(135deg, var(--primary-light), #EDF8F6);
+            border-bottom: 1px solid var(--border);
+            padding: 10px 24px;
+            text-align: center;
+        }
+
+        .announcement-banner p {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--primary-dark);
+            letter-spacing: 0.02em;
+        }
+
+        .announcement-banner span {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* ============================================
+           SECTION 2: NAVIGATION
+           ============================================ */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0 24px;
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .navbar-brand-text {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 0.08em;
+        }
+
+        .navbar-brand-sub {
+            font-size: 10px;
+            color: var(--text-muted);
+            display: block;
+            margin-top: -4px;
+            letter-spacing: 0.02em;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .navbar-links a {
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: color 0.2s;
+        }
+
+        .navbar-links a:hover { color: var(--primary); }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.25s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(10, 123, 110, 0.25);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-light);
+        }
+
+        .btn-white {
+            background: #fff;
+            color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-white:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
+        }
+
+        .btn-lg {
+            padding: 14px 32px;
+            font-size: 15px;
+            border-radius: 10px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-menu-btn svg { width: 24px; height: 24px; color: var(--text-primary); }
+
+        /* ============================================
+           SECTION 3: HERO
+           ============================================ */
+        .hero {
+            padding: 80px 0 60px;
+            background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
+            overflow: hidden;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content { max-width: 560px; }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: var(--primary-light);
+            border: 1px solid rgba(10, 123, 110, 0.15);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+
+        .hero-badge-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.7; }
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--primary);
+        }
+
+        .hero-sub {
+            font-size: 17px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .hero-stat {
+            position: relative;
+        }
+
+        .hero-stat::before {
+            content: '';
+            display: block;
+            width: 32px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+            margin-bottom: 10px;
+        }
+
+        .hero-stat-value {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .hero-stat-label {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-media {
+            position: relative;
+        }
+
+        .hero-video-wrap {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-light);
+            position: relative;
+            aspect-ratio: 16/10;
+        }
+
+        .hero-video-wrap video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-product-float {
+            position: absolute;
+            bottom: -30px;
+            right: -20px;
+            width: 160px;
+            height: 160px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-light);
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .hero-product-float img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* ============================================
+           SECTION 4: CREDIBILITY BAR
+           ============================================ */
+        .credibility {
+            padding: 48px 0;
+            background: var(--bg);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .credibility-label {
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+        }
+
+        .credibility-grid {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .cred-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            transition: all 0.2s;
+        }
+
+        .cred-badge:hover {
+            background: var(--primary-light);
+            border-color: var(--primary);
+        }
+
+        .cred-badge svg {
+            width: 18px;
+            height: 18px;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* ============================================
+           SECTION 5: COMPARISON TABLE
+           ============================================ */
+        .comparison {
+            padding: 80px 0;
+            background: var(--bg-soft);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            background: var(--primary-light);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 16px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .comparison-table-wrap {
+            overflow-x: auto;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            background: #fff;
+            border: 1px solid var(--border-light);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+        }
+
+        .comparison-table thead th {
+            padding: 18px 20px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .comparison-table thead th:first-child {
+            text-align: left;
+            color: var(--text-secondary);
+            width: 22%;
+        }
+
+        .comparison-table thead th:nth-child(2) {
+            text-align: center;
+            color: var(--data-red);
+            background: var(--data-red-bg);
+            width: 39%;
+        }
+
+        .comparison-table thead th:nth-child(3) {
+            text-align: center;
+            color: var(--primary);
+            background: var(--primary-light);
+            width: 39%;
+        }
+
+        .comparison-table tbody td {
+            padding: 16px 20px;
+            font-size: 14px;
+            border-bottom: 1px solid var(--border-light);
+            vertical-align: top;
+        }
+
+        .comparison-table tbody td:first-child {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .comparison-table tbody td:nth-child(2) {
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .comparison-table tbody td:nth-child(3) {
+            text-align: center;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .comparison-table tbody tr:hover {
+            background: var(--bg-soft);
+        }
+
+        .cmp-win { color: var(--data-green) !important; }
+        .cmp-lose { color: var(--data-red) !important; }
+
+        .cmp-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .comparison-citation {
+            padding: 20px 24px;
+            background: var(--bg-soft);
+            border-top: 1px solid var(--border-light);
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ============================================
+           SECTION 6: MECHANISM — HOW MICROPLATELETS KILL
+           ============================================ */
+        .mechanism {
+            padding: 80px 0;
+            background: var(--bg);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px 28px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+
+        .feature-card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .feature-card-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--primary);
+        }
+
+        .feature-card h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           SECTION 7: PATHOGENS KILLED
+           ============================================ */
+        .pathogens {
+            padding: 80px 0;
+            background: var(--bg-soft);
+        }
+
+        .pathogen-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .pathogen-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.2s;
+        }
+
+        .pathogen-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .pathogen-card-name {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .pathogen-card-detail {
+            font-size: 12px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .pathogen-card-sub {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .quote-box {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 10px 10px 0;
+            padding: 24px 28px;
+            margin-top: 24px;
+        }
+
+        .quote-box blockquote {
+            font-family: 'Lora', serif;
+            font-size: 16px;
+            font-style: italic;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .quote-box cite {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-style: normal;
+            color: var(--text-muted);
+        }
+
+        /* ============================================
+           SECTION 8: INFECTION CONTROL BENEFITS
+           ============================================ */
+        .benefits {
+            padding: 80px 0;
+            background: var(--bg);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .benefits-grid .feature-card {
+            display: grid;
+            grid-template-columns: 56px 1fr;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .benefits-grid .feature-card-icon {
+            margin-bottom: 0;
+        }
+
+        .benefits-grid .feature-card h3 {
+            margin-bottom: 8px;
+        }
+
+        /* ============================================
+           SECTION 9: LEAD CAPTURE CTA
+           ============================================ */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-light) 0%, #E0F2F0 50%, var(--bg-soft) 100%);
+        }
+
+        .cta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .cta-content h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .cta-content > p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .cta-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .cta-img {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .cta-img img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .cta-img-tall {
+            grid-row: span 2;
+        }
+
+        .cta-img-tall img {
+            height: 100%;
+        }
+
+        .cta-form {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 36px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-light);
+        }
+
+        .cta-form h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text-primary);
+            background: var(--bg);
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            margin-top: 8px;
+        }
+
+        .form-note {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 12px;
+            text-align: center;
+        }
+
+        .form-contact {
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        .form-contact a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* ============================================
+           SECTION 10: FAQ
+           ============================================ */
+        .faq {
+            padding: 80px 0;
+            background: var(--bg);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            background: #fff;
+            transition: all 0.2s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary);
+        }
+
+        .faq-trigger {
+            width: 100%;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-align: left;
+        }
+
+        .faq-trigger svg {
+            width: 20px;
+            height: 20px;
+            color: var(--text-muted);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+
+        .faq-item.active .faq-trigger svg {
+            transform: rotate(180deg);
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-content-inner {
+            padding: 0 24px 20px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           SECTION 11: FOOTER
+           ============================================ */
+        .footer {
+            background: #FAFBFC;
+            border-top: 1px solid var(--border);
+            padding: 64px 0 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand-text {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 0.06em;
+            margin-bottom: 8px;
+        }
+
+        .footer-brand-sub {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .footer-address {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .footer-col h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            text-decoration: none;
+            font-size: 13px;
+            color: var(--text-secondary);
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-bottom p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .footer-badges {
+            display: flex;
+            gap: 16px;
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 968px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero h1 { font-size: 34px; }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .feature-grid,
+            .pathogen-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cta-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .navbar-links { display: none; }
+            .mobile-menu-btn { display: block; }
+
+            .hero h1 { font-size: 28px; }
+            .hero-sub { font-size: 15px; }
+            .hero-actions { flex-direction: column; }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            .hero-stat-value { font-size: 22px; }
+            .hero-product-float { width: 120px; height: 120px; bottom: -20px; right: -10px; }
+
+            .section-header h2 { font-size: 28px; }
+
+            .feature-grid,
+            .pathogen-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .credibility-grid { gap: 8px; }
+            .cred-badge { font-size: 11px; padding: 8px 12px; }
+
+            .form-row { grid-template-columns: 1fr; }
+
+            .cta-images {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-img-tall { grid-row: span 1; }
+
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+
+        /* Mobile menu */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 72px;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            padding: 16px 24px;
+            z-index: 99;
+            box-shadow: var(--shadow-md);
+        }
+
+        .mobile-nav.active { display: block; }
+
+        .mobile-nav a {
+            display: block;
+            padding: 12px 0;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .mobile-nav a:last-child { border-bottom: none; }
+    </style>
+</head>
+<body>
+
+<!-- ============================================
+     SECTION 1: ANNOUNCEMENT BANNER
+     ============================================ -->
+<div class="announcement-banner">
+    <p><span>FDA Cleared</span> · NDC Registered · <span>BSL-3 Validated</span> at Arizona State University · Kills C. diff Spores in 30 Seconds</p>
+</div>
+
+<!-- ============================================
+     SECTION 2: NAVIGATION
+     ============================================ -->
+<nav class="navbar">
+    <div class="container">
+        <a href="#" class="navbar-brand">
+            <div>
+                <div class="navbar-brand-text">COVEXALL</div>
+                <div class="navbar-brand-sub">by Impact Diversity Solutions</div>
+            </div>
+        </a>
+        <ul class="navbar-links">
+            <li><a href="#comparison">Clinical Data</a></li>
+            <li><a href="#mechanism">The Science</a></li>
+            <li><a href="#benefits">Infection Control</a></li>
+            <li><a href="#pathogens">Pathogens Covered</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Request Clinical Samples</a>
+        <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+    </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+    <a href="#comparison" onclick="toggleMenu()">Clinical Data</a>
+    <a href="#mechanism" onclick="toggleMenu()">The Science</a>
+    <a href="#benefits" onclick="toggleMenu()">Infection Control</a>
+    <a href="#pathogens" onclick="toggleMenu()">Pathogens Covered</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+    <a href="#contact" onclick="toggleMenu()" style="color: var(--primary); font-weight: 700;">Request Clinical Samples</a>
+</div>
+
+<!-- ============================================
+     SECTION 3: HERO
+     ============================================ -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content fade-in">
+            <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                Clinical-Grade Protection
+            </div>
+            <h1>4-Hour Pathogen Protection. One Application. <em>Zero Alcohol.</em></h1>
+            <p class="hero-sub">Covexall is the first water-based hand sanitizer clinically proven to kill SARS-CoV-2, C. difficile spores, MRSA, and 11 bacterial species — with persistent efficacy lasting over 4 hours in BSL-3 certified testing. Non-flammable. Non-drying. Non-toxic.</p>
+            <div class="hero-actions">
+                <a href="#" class="btn btn-primary btn-lg">Download Clinical Data (PDF)</a>
+                <a href="#contact" class="btn btn-outline btn-lg">Request Evaluation Samples</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-value">99.9%</div>
+                    <div class="hero-stat-label">Kill rate at 60s</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">4+ hrs</div>
+                    <div class="hero-stat-label">Continuous protection</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">11/11</div>
+                    <div class="hero-stat-label">Bacteria eliminated</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">&lt;.001</div>
+                    <div class="hero-stat-label">P-value vs ethanol</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-media fade-in">
+            <div class="hero-video-wrap">
+                <video autoplay muted loop playsinline poster="../Nutricove_A_38-year-old_female_doctor_of_Black_and_Asian_heri_83ae0da5-f741-42ec-b0b0-f180250eb4d7_3.png">
+                    <source src="../Nutricove_A_38-year-old_female_doctor_of_Black_and_Asian_heri_e0aa3910-ec43-4200-a74d-7deae19b1c64_0.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="hero-product-float">
+                <img src="../COVEXALL OG LABEL & BOX.png" alt="Covexall Product">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     SECTION 4: CREDIBILITY BAR
+     ============================================ -->
+<section class="credibility fade-in">
+    <div class="container">
+        <div class="credibility-label">Tested, Cleared &amp; Certified</div>
+        <div class="credibility-grid">
+            <div class="cred-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+                FDA Cleared
+            </div>
+            <div class="cred-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+                NDC Registered
+            </div>
+            <div class="cred-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                BSL-3 Lab Validated
+            </div>
+            <div class="cred-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                ASTM E2752 Compliant
+            </div>
+            <div class="cred-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                SBA Veteran-Owned
+            </div>
+            <div class="cred-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 12h8"/></svg>
+                Non-Flammable · Non-Toxic
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     SECTION 5: COMPARISON TABLE
+     ============================================ -->
+<section class="comparison fade-in" id="comparison">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">Clinical Evidence</div>
+            <h2>Covexall vs. Alcohol-Based Sanitizers</h2>
+            <p>Side-by-side clinical data from peer-reviewed ASTM E2752 testing. The results speak for themselves.</p>
+        </div>
+        <div class="comparison-table-wrap">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Alcohol-Based (63% Ethanol)</th>
+                        <th>Covexall (BZK + Microplatelets)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Protection Duration</td>
+                        <td class="cmp-lose">Seconds to minutes (until evaporation)</td>
+                        <td class="cmp-win">4+ hours continuous</td>
+                    </tr>
+                    <tr>
+                        <td>Log₁₀ Reduction @ 1 Hour</td>
+                        <td class="cmp-lose">0.70 (median: 0.51)</td>
+                        <td class="cmp-win">4.12 (median: 4.22)</td>
+                    </tr>
+                    <tr>
+                        <td>Log₁₀ Reduction @ 4 Hours</td>
+                        <td class="cmp-lose">0.32 (median: 0.17)</td>
+                        <td class="cmp-win">3.75 (median: 3.96)</td>
+                    </tr>
+                    <tr>
+                        <td>Statistical Significance</td>
+                        <td>—</td>
+                        <td class="cmp-win">P &lt; .001</td>
+                    </tr>
+                    <tr>
+                        <td>C. diff Spore Kill</td>
+                        <td><span class="cmp-icon cmp-lose">&#10060; Most alcohol formulas cannot kill C. diff spores</span></td>
+                        <td><span class="cmp-icon cmp-win">&#10004; Complete kill at 30 seconds</span></td>
+                    </tr>
+                    <tr>
+                        <td>Flammability</td>
+                        <td><span class="cmp-icon cmp-lose">&#9888;&#65039; Highly flammable at 60-90%</span></td>
+                        <td><span class="cmp-icon cmp-win">&#10004; Non-flammable (water-based)</span></td>
+                    </tr>
+                    <tr>
+                        <td>Skin Impact</td>
+                        <td class="cmp-lose">Dries skin, strips oils, causes fissures</td>
+                        <td class="cmp-win">Moisturizing, hypoallergenic</td>
+                    </tr>
+                    <tr>
+                        <td>Fire Code Restrictions</td>
+                        <td class="cmp-lose">Required — limits dispenser placement</td>
+                        <td class="cmp-win">None — place anywhere</td>
+                    </tr>
+                    <tr>
+                        <td>Pain on Open Wounds</td>
+                        <td class="cmp-lose">Yes — alcohol burns on cuts</td>
+                        <td class="cmp-win">Painless application</td>
+                    </tr>
+                    <tr>
+                        <td>Ingestion Risk</td>
+                        <td class="cmp-lose">Toxic if ingested</td>
+                        <td class="cmp-win">Non-toxic formula</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="comparison-citation">
+                <strong>Source:</strong> Bondurant et al., <em>American Journal of Infection Control</em> 47 (2019) 928–932. ASTM E2752 protocol. n=24 subjects. Bioscience Laboratories, Inc. Report #1803148-150.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     SECTION 6: MECHANISM — HOW MICROPLATELETS KILL
+     ============================================ -->
+<section class="mechanism fade-in" id="mechanism">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">The Science</div>
+            <h2>How Microplatelets Kill Pathogens</h2>
+            <p>Three synergistic kill mechanisms deliver persistent antimicrobial protection long after alcohol has evaporated.</p>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9.5 13l1.5 1.5 3.5-3.5" opacity="0.5"/><line x1="4" y1="4" x2="20" y2="20" stroke-width="2.5"/></svg>
+                </div>
+                <h3>Physical Destruction, Not Chemical Evaporation</h3>
+                <p>Unlike alcohol that evaporates in seconds, our copper-infused magnesium hydroxide microplatelets (200nm × 100nm × 10nm) physically bond to skin and mechanically destroy pathogen biofilm membranes on contact. The microplatelet survives the encounter and continues killing.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 22s5-3 5-7V7l-5-2-5 2v8c0 4 5 7 5 7z" opacity="0.5"/><path d="M12 22s2-2 2-4V9l-2-1-2 1v9c0 2 2 4 2 4z" opacity="0.3"/></svg>
+                </div>
+                <h3>Three Active Kill Mechanisms</h3>
+                <p>Mg(OH)₂ microplatelets create massive reactive surface area. Infused copper ions punch holes in cell membranes and destroy DNA/RNA. Benzalkonium chloride (0.12%) disrupts cell membranes at the molecular level. All three work in unison.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/><path d="M12 22s8-4 8-10V5" opacity="0.3"/></svg>
+                </div>
+                <h3>Persistent Residual Activity</h3>
+                <p>BZK produced 3.75–4.16 log₁₀ reductions at 1, 2, and 3 hours post-application in clinical studies. The ethanol comparator showed less than 1 log₁₀ reduction at every time point. This persistent activity reduces incidental contamination between patient contacts.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     SECTION 7: PATHOGENS KILLED
+     ============================================ -->
+<section class="pathogens fade-in" id="pathogens">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">Kill Spectrum</div>
+            <h2>Tested Against the Pathogens That Matter Most</h2>
+            <p>Independent kill rate testing by Microconsult, Inc. — 30 and 60 second exposures. Complete kill confirmed.</p>
+        </div>
+        <div class="pathogen-grid">
+            <div class="pathogen-card">
+                <div class="pathogen-card-name">SARS-CoV-2 (COVID-19)</div>
+                <div class="pathogen-card-detail">99.98% kill rate</div>
+                <div class="pathogen-card-sub">4+ hour duration (ASU BSL-3)</div>
+            </div>
+            <div class="pathogen-card">
+                <div class="pathogen-card-name">C. difficile — Active Cultures</div>
+                <div class="pathogen-card-detail">Complete kill at 30s</div>
+                <div class="pathogen-card-sub">Clostridium difficile</div>
+            </div>
+            <div class="pathogen-card">
+                <div class="pathogen-card-name">C. difficile — Spores</div>
+                <div class="pathogen-card-detail">5.2+ log₁₀ reduction</div>
+                <div class="pathogen-card-sub">Complete kill at 30 seconds</div>
+            </div>
+            <div class="pathogen-card">
+                <div class="pathogen-card-name">MRSA</div>
+                <div class="pathogen-card-detail">Complete kill</div>
+                <div class="pathogen-card-sub">Methicillin-resistant S. aureus</div>
+            </div>
+            <div class="pathogen-card">
+                <div class="pathogen-card-name">Staphylococcus aureus</div>
+                <div class="pathogen-card-detail">Complete kill</div>
+                <div class="pathogen-card-sub">ATCC 6538</div>
+            </div>
+            <div class="pathogen-card">
+                <div class="pathogen-card-name">E. coli</div>
+                <div class="pathogen-card-detail">Complete kill</div>
+                <div class="pathogen-card-sub">Escherichia coli</div>
+            </div>
+            <div class="pathogen-card">
+                <div class="pathogen-card-name">Burkholderia cepacia</div>
+                <div class="pathogen-card-detail">Complete kill</div>
+                <div class="pathogen-card-sub">Respiratory pathogen</div>
+            </div>
+            <div class="pathogen-card">
+                <div class="pathogen-card-name">Pseudomonas aeruginosa</div>
+                <div class="pathogen-card-detail">Complete kill</div>
+                <div class="pathogen-card-sub">Hospital-acquired infections</div>
+            </div>
+            <div class="pathogen-card">
+                <div class="pathogen-card-name">Enterococcus faecium</div>
+                <div class="pathogen-card-detail">Complete kill</div>
+                <div class="pathogen-card-sub">VRE-associated species</div>
+            </div>
+            <div class="pathogen-card">
+                <div class="pathogen-card-name">Serratia marcescens</div>
+                <div class="pathogen-card-detail">Complete kill</div>
+                <div class="pathogen-card-sub">ICU pathogen</div>
+            </div>
+            <div class="pathogen-card">
+                <div class="pathogen-card-name">Klebsiella pneumoniae</div>
+                <div class="pathogen-card-detail">Complete kill</div>
+                <div class="pathogen-card-sub">MDR-associated species</div>
+            </div>
+            <div class="pathogen-card">
+                <div class="pathogen-card-name">+ Additional Species</div>
+                <div class="pathogen-card-detail">See whitepaper</div>
+                <div class="pathogen-card-sub">Full panel in clinical report</div>
+            </div>
+        </div>
+        <div class="quote-box">
+            <blockquote>"The action against the spores of C. difficile is particularly remarkable."</blockquote>
+            <cite>— Antimicrobial Summary Report, Dr. John W. Harbell, JHarbell Consulting LLC</cite>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     SECTION 8: INFECTION CONTROL BENEFITS
+     ============================================ -->
+<section class="benefits fade-in" id="benefits">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">Infection Control</div>
+            <h2>Clinical Benefits for Your Facility</h2>
+            <p>Persistent protection addresses the real-world gaps in alcohol-based hand hygiene programs.</p>
+        </div>
+        <div class="benefits-grid">
+            <div class="feature-card">
+                <div class="feature-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                </div>
+                <div>
+                    <h3>Eliminate Incidental Contamination</h3>
+                    <p>Between patient contacts, practitioners touch keyboards, bed frames, chairs, and fixtures. A persistent antimicrobial hand sanitizer reduces the opportunity for microbial transfer during these incidental contacts — something alcohol cannot do after evaporation.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                    <h3>No Fire Code Restrictions</h3>
+                    <p>Alcohol-based sanitizers at FDA-recommended 60-90% concentrations are fire hazards requiring consultation with fire authorities and adherence to strict placement codes. Covexall is water-based and non-flammable — mount dispensers exactly where your workflow needs them.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <div>
+                    <h3>Reduce HAI Risk Vectors</h3>
+                    <p>Healthcare-associated infections affect millions annually. Persistent hand hygiene between every patient contact, surface touch, and procedure creates a continuous barrier that evaporating alcohol simply cannot maintain.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div>
+                    <h3>Staff Compliance &amp; Comfort</h3>
+                    <p>Staff who sanitize 50+ times per day suffer cracked, painful hands from alcohol — reducing compliance. Covexall moisturizes skin, is painless on wounds, and requires fewer applications. Better compliance = better outcomes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     SECTION 9: LEAD CAPTURE CTA
+     ============================================ -->
+<section class="cta-section fade-in" id="contact">
+    <div class="container">
+        <div class="cta-grid">
+            <div class="cta-content">
+                <h2>Evaluate Covexall in Your Facility</h2>
+                <p>Request complimentary clinical samples, access the full BSL-3 lab data, or schedule a consultation with our team.</p>
+                <div class="cta-images">
+                    <div class="cta-img cta-img-tall">
+                        <img src="../Nutricove_A_38-year-old_female_doctor_of_Black_and_Asian_heri_83ae0da5-f741-42ec-b0b0-f180250eb4d7_3.png" alt="Healthcare professional">
+                    </div>
+                    <div class="cta-img">
+                        <img src="../Nutricove_A_brunette_mother_in_her_30s_to_early_40s_is_shown__c72feeef-8a6c-4906-917b-4351955c3b22_0.png" alt="Mother with child">
+                    </div>
+                    <div class="cta-img">
+                        <img src="../Nutricove_Healthy_baby_age_6-10_months_neutral_gender_appeara_b6d855c2-b71d-44ac-b0d8-746dcf95dbd0_0.png" alt="Healthy baby">
+                    </div>
+                </div>
+                <div style="display: flex; gap: 12px; margin-top: 20px;">
+                    <div class="cta-img" style="flex:1;">
+                        <img src="../5gal.png" alt="Covexall 5 Gallon" style="height:120px; object-fit:contain; background:#fff; padding:8px;">
+                    </div>
+                    <div class="cta-img" style="flex:1;">
+                        <img src="../55gal.png" alt="Covexall 55 Gallon" style="height:120px; object-fit:contain; background:#fff; padding:8px;">
+                    </div>
+                    <div class="cta-img" style="flex:1;">
+                        <img src="../255gal.png" alt="Covexall 255 Gallon" style="height:120px; object-fit:contain; background:#fff; padding:8px;">
+                    </div>
+                </div>
+            </div>
+            <div class="cta-form">
+                <h3>Request Clinical Evaluation</h3>
+                <form onsubmit="handleSubmit(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" placeholder="Dr. Jane Smith" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Title / Role</label>
+                            <input type="text" id="title" placeholder="Infection Control Officer">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="org">Organization Name</label>
+                        <input type="text" id="org" placeholder="Memorial General Hospital">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" placeholder="jane@hospital.org" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" placeholder="(555) 123-4567">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="facility">Facility Type</label>
+                            <select id="facility">
+                                <option value="">Select...</option>
+                                <option>Hospital</option>
+                                <option>Dental Office</option>
+                                <option>Nursing Home / Assisted Living</option>
+                                <option>Urgent Care</option>
+                                <option>Surgery Center</option>
+                                <option>Home Health</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="beds">Beds / Stations</label>
+                            <input type="text" id="beds" placeholder="e.g. 250">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="interest">Primary Interest</label>
+                        <select id="interest">
+                            <option value="">Select...</option>
+                            <option>Clinical Samples</option>
+                            <option>Bulk Pricing</option>
+                            <option>Whitepaper Access</option>
+                            <option>Consultation Call</option>
+                            <option>All of the Above</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg form-submit">Request Clinical Evaluation</button>
+                    <p class="form-note">Your data stays with us. We'll respond within 1 business day.</p>
+                    <p class="form-contact">Or email us directly: <a href="mailto:cbrown@impactdiversity.com">cbrown@impactdiversity.com</a> | <a href="tel:4804346050">(480) 434-6050</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     SECTION 10: FAQ
+     ============================================ -->
+<section class="faq fade-in" id="faq">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">FAQ</div>
+            <h2>Frequently Asked Questions</h2>
+            <p>Clinical and regulatory answers for healthcare decision-makers.</p>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-trigger" onclick="toggleFaq(this)">
+                    What is the active ingredient and what is the FDA status?
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-content-inner">The active ingredient is Benzalkonium Chloride (BZK) at 0.12% concentration, combined with our patented copper-infused magnesium hydroxide microplatelet technology. The product has received FDA clearance with assigned National Drug Codes (NDC). Safety profile testing confirmed no toxicity for human use.</div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-trigger" onclick="toggleFaq(this)">
+                    How was the 4-hour claim validated?
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-content-inner">Duration testing was conducted in a certified Biosafety Level 3 (BSL-3) facility at Arizona State University's Biodesign Institute under the direction of Dr. Jeffrey Langland. The study confirmed that both the Hand Sanitizer ("2 in 1 Invisible Glove") and Mask Spray products kill SARS-CoV-2 even after drying on a surface for 1 hour and 4 hours. Additionally, the ASTM E2752 residual antibacterial study (n=24 subjects) demonstrated statistically significant antibacterial efficacy at 1, 2, and 4 hours post-application (P &lt; .001 vs. ethanol comparator).</div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-trigger" onclick="toggleFaq(this)">
+                    Can it kill Clostridium difficile spores?
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-content-inner">Yes. Kill rate testing by Microconsult, Inc. confirmed complete kill of C. difficile in both active culture and spore stages at 30-second and 60-second exposures with 5.2+ log₁₀ reduction. This is significant because most alcohol-based sanitizers are ineffective against C. diff spores.</div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-trigger" onclick="toggleFaq(this)">
+                    Is it compatible with glove use?
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-content-inner">Yes. Apply Covexall before gloving for an additional layer of protection, or use it as a between-patient hand hygiene step. The product dries within 30 seconds and leaves no residue that would interfere with glove integrity.</div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-trigger" onclick="toggleFaq(this)">
+                    Does it meet OSHA or Joint Commission requirements?
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-content-inner">Covexall uses an FDA-cleared active ingredient (BZK) following federally approved effectiveness protocols. It eliminates the flammability concerns associated with alcohol-based sanitizers that trigger OSHA and fire code requirements. Contact us for specific compliance documentation.</div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-trigger" onclick="toggleFaq(this)">
+                    Is your company eligible for government procurement?
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-content-inner">Yes. Impact Diversity Solutions, Inc. holds SBA certification as both a Veteran-Owned and Service-Disabled Veteran-Owned Small Business (QSB), qualifying for federal set-aside contracts and government procurement programs.</div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-trigger" onclick="toggleFaq(this)">
+                    How does pricing compare to alcohol-based alternatives?
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-content-inner">Covexall requires significantly fewer applications per person per day (1 application = 4 hours vs. alcohol requiring reapplication every few minutes). When factoring in reduced consumption, fewer dispensers needed (no fire code placement restrictions), reduced skin care costs for staff, and potential HAI reduction — the total cost of ownership is highly competitive. Contact us for a volume-based pricing analysis.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     SECTION 11: FOOTER
+     ============================================ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand-text">COVEXALL</div>
+                <div class="footer-brand-sub">A product of Impact Diversity Solutions, Inc.<br>5050 N. 40th, Suite 110<br>Phoenix, AZ 85018</div>
+            </div>
+            <div class="footer-col">
+                <h4>Clinical Resources</h4>
+                <ul>
+                    <li><a href="#">Download Whitepaper</a></li>
+                    <li><a href="#">BSL-3 Lab Results</a></li>
+                    <li><a href="#">Kill Rate Data</a></li>
+                    <li><a href="#">Safety Profile Report</a></li>
+                    <li><a href="#">Antimicrobial Summary</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:cbrown@impactdiversity.com">cbrown@impactdiversity.com</a></li>
+                    <li><a href="tel:4804346050">(480) 434-6050</a></li>
+                    <li><a href="#contact">Request Samples</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Impact Diversity Solutions, Inc. All Rights Reserved.</p>
+            <div class="footer-badges">
+                <span>FDA Cleared</span>
+                <span>·</span>
+                <span>NDC Registered</span>
+                <span>·</span>
+                <span>SBA Veteran-Owned Certified</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile menu toggle
+    function toggleMenu() {
+        document.getElementById('mobileNav').classList.toggle('active');
+    }
+
+    // FAQ accordion
+    function toggleFaq(trigger) {
+        const item = trigger.parentElement;
+        const content = item.querySelector('.faq-content');
+        const isActive = item.classList.contains('active');
+
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(el => {
+            el.classList.remove('active');
+            el.querySelector('.faq-content').style.maxHeight = null;
+        });
+
+        // Open clicked (if wasn't already open)
+        if (!isActive) {
+            item.classList.add('active');
+            content.style.maxHeight = content.scrollHeight + 'px';
+        }
+    }
+
+    // Scroll fade-in animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Form handler
+    function handleSubmit(e) {
+        e.preventDefault();
+        alert('Thank you! Your request has been submitted. We will respond within 1 business day.');
+    }
+
+    // Sticky nav shadow on scroll
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('.navbar');
+        if (window.scrollY > 10) {
+            nav.style.boxShadow = '0 2px 12px rgba(0,0,0,0.06)';
+        } else {
+            nav.style.boxShadow = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>
